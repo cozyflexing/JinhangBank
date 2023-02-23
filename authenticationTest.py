@@ -1,10 +1,15 @@
+from time import sleep
+import sys
+from mfrc522 import SimpleMFRC522
+
+reader = SimpleMFRC522()
 users = []
 
 
 class User:
     def __init__(self, accountNumber, cardNumber, pinCode, balance):
         self.accountNumber = accountNumber
-        self.cardNumber = cardNumber
+        self.cards = [cardNumber]
         self.pinCode = pinCode
         self.balance = balance
 
@@ -16,6 +21,17 @@ class User:
 
     def add(self, amount):
         self.balance += amount
+
+    def addCards(self):
+        try:
+            print("Hold card near reader. ")
+            id, text = reader.read()
+            print("ID: %s\nText: %s" % (id, text))
+            self.cards.append(id)
+            self.pinCode = text
+        except KeyboardInterrupt:
+            GPIO.cleanup()
+            raise
 
 
 def authentication(accountNumber, pinCode, user=[]):
@@ -33,13 +49,3 @@ def login():
     accountNumber = input("Accountnumber please: ")
     pinCode = input("Pin code please: ")
     authentication(accountNumber, pinCode, users)
-
-
-users.append(User("NL00JHBK1234567890", "000", "0000", 100))
-
-
-User.printBalance(users[0])
-User.add(users[0], 100)
-User.printBalance(users[0])
-User.withdraw(users[0], 75)
-User.printBalance(users[0])
