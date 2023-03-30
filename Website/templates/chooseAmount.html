@@ -1,0 +1,22 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask Background Image</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="chooseAmountBody">
+    <form action="{{ url_for('amountUnavailable') }}" method="GET">
+        <button type="submit">amountUnavailable</button>
+    </form>
+    <form action="{{ url_for('enterAmount') }}" method="GET">
+        <button type="submit">enterAmount</button>
+    </form>
+    <form action="{{ url_for('goodBye') }}" method="GET">
+        <button type="submit">Quit</button>
+    </form>
+</body>
+</html>

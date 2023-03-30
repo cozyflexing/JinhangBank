@@ -1,0 +1,93 @@
+/* styles.css */
+html, body {
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/scanCard.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.enterPinBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/enterPincode.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.makeChoiceBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/makeFunctionChoice.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.goodByeBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/goodBye.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.changePinBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/enterNewPincode.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.chooseAmountBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/pickAmount.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.showBalanceBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/balanceShown.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.amountUnavailableBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/amountUnavailable.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.enterAmountBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/enterAmount.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+form {
+    margin-top: auto;
+}

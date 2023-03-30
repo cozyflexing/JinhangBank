@@ -1,0 +1,7 @@
+Ip: 145.24.222.16
+Inlog: ubuntu-1051158
+Wachtwoord: NS24^vpY
+
+// COMMANDS:
+    - ssh ubuntu-1051158@145.24.222.16
+    - sudo mysql -u root -p

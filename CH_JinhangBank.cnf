@@ -1,0 +1,59 @@
+[ ca ]
+default_ca              = root_ca
+
+[ root_ca ]
+name_opt                = ca_default
+cert_opt                = ca_default
+
+default_days            = 365
+default_md              = sha256
+preserve                = no
+
+x509_extensions         = server_ext
+copy_extensions         = copyall
+policy                  = dn_policy
+
+[ dn_policy ]
+countryName             = supplied
+stateOrProvinceName     = match
+organizationName        = match
+organizationalUnitName  = supplied
+commonName              = supplied
+emailAddress            = optional
+
+[ dn ]
+countryName             = "CH"
+stateOrProvinceName     = "Zuid-Holland"
+localityName            = "Rotterdam"
+0.organizationName      = "Hogeschool Rotterdam Technische Informatica"
+organizationalUnitName  = "JinhangBank"
+commonName              = "145.24.222.16"
+
+[ req ]
+encrypt_key             = yes
+default_bits            = 4096
+default_days            = 365
+default_md              = sha256
+req_extensions          = v3_server_ext
+
+utf8                    = yes
+string_mask             = utf8only
+
+distinguished_name      = dn
+prompt                  = no
+
+[ server_ext ]
+subjectAltName          = IP:145.24.222.16
+subjectKeyIdentifier    = hash
+authorityKeyIdentifier  = keyid,issuer:always
+basicConstraints        = CA:false
+keyUsage                = critical, digitalSignature, keyEncipherment
+extendedKeyUsage        = serverAuth, clientAuth
+
+[ v3_server_ext ]
+subjectAltName          = IP:145.24.222.16
+subjectKeyIdentifier    = hash
+basicConstraints        = CA:false
+keyUsage                = critical, digitalSignature, keyEncipherment
+extendedKeyUsage        = serverAuth, clientAuth
+
