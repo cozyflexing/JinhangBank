@@ -9,16 +9,16 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body class="makeChoiceBody">
-    <form action="{{ url_for('showBalance') }}" method="GET">
+    <form action="{{ url_for('showBalance.showBalance') }}" method="GET">
         <button type="submit">Request Balance</button>
     </form>
-    <form action="{{ url_for('chooseAmount') }}" method="GET">
+    <form action="{{ url_for('chooseAmount.chooseAmount') }}" method="GET">
         <button type="submit">Withdraw Money</button>
     </form>
-    <form action="{{ url_for('changePin') }}" method="GET">
+    <form action="{{ url_for('changePin.changePin') }}" method="GET">
         <button type="submit">Change Pin</button>
     </form>
-    <form action="{{ url_for('goodBye') }}" method="GET">
+    <form action="{{ url_for('goodBye.goodBye') }}" method="GET">
         <button type="submit">Quit</button>
     </form>
 </body>
