@@ -88,6 +88,15 @@ body {
     background-repeat: no-repeat;
     background-position: center;
 }
+.pickLanguageBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/pickLanguage.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 form {
     margin-top: auto;
 }

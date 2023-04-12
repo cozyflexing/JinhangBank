@@ -49,5 +49,10 @@ def amountUnavailable():
     return render_template("amountUnavailable.html")
 
 
+@app.route("/pickLanguage")
+def pickLanguage():
+    return render_template("pickLanguage.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=80)
