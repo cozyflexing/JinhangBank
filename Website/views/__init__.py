@@ -6,6 +6,7 @@ def create_app():
     app = Flask(
         __name__,
         template_folder="/Users/aleniriskic/Desktop/JinhangBank/Website/templates",
+        static_folder="/Users/aleniriskic/Desktop/JinhangBank/Website/static",
     )
 
     from .index import index_bp
