@@ -1,12 +1,13 @@
 # views/__init__.py
 from flask import Flask
+import os
 
 
 def create_app():
     app = Flask(
         __name__,
-        template_folder="/Users/aleniriskic/Desktop/JinhangBank/Website/templates",
-        static_folder="/Users/aleniriskic/Desktop/JinhangBank/Website/static",
+        template_folder=os.path.join(os.path.dirname(__file__), "../templates"),
+        static_folder=os.path.join(os.path.dirname(__file__), "../static"),
     )
 
     from .scanCard import scanCard_bp
