@@ -10,7 +10,7 @@
 </head>
 <body class="makeChoiceBody">
     <form action="{{ url_for('showBalance.showBalance') }}" method="GET">
-        <button type="submit">Request Balance</button>
+        <button type="submit">Show Balance</button>
     </form>
     <form action="{{ url_for('chooseAmount.chooseAmount') }}" method="GET">
         <button type="submit">Withdraw Money</button>
@@ -21,5 +21,13 @@
     <form action="{{ url_for('goodBye.goodBye') }}" method="GET">
         <button type="submit">Quit</button>
     </form>
+    <button onclick="goBack()">Go Back</button>
+
+    <script>
+    function goBack() {
+    window.history.back();
+    }
+    </script>
+</body>
 </body>
 </html>

@@ -8,11 +8,11 @@
     <title></title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
-<body class="goodByeBody">
+<body class="takeMoneyBody">
+    <script>
+        setTimeout(function() {
+            window.location.href = "{{ url_for('receiptChoice.receiptChoice') }}";
+        }, 5000);
+    </script>
 </body>
-<script>
-    setTimeout(function() {
-        window.location.href = "{{ url_for('index.index') }}";
-    }, 5000);
-</script>
 </html>

@@ -18,5 +18,31 @@
     <form action="{{ url_for('goodBye.goodBye') }}" method="GET">
         <button type="submit">Quit</button>
     </form>
+    <form action="{{ url_for('bePatient.bePatient') }}" method="POST">
+        <input type="hidden" name="input_text" value="">
+        <input type="hidden" name="amount" value="20">
+        <button type="submit">20</button>
+    </form>
+    <form action="{{ url_for('bePatient.bePatient') }}" method="POST">
+        <input type="hidden" name="input_text" value="">
+        <input type="hidden" name="amount" value="50">
+        <button type="submit">50</button>
+    </form>
+    <form action="{{ url_for('bePatient.bePatient') }}" method="POST">
+        <input type="hidden" name="input_text" value="">
+        <input type="hidden" name="amount" value="70">
+        <button type="submit">70</button>
+    </form>
+    <form action="{{ url_for('bePatient.bePatient') }}" method="POST">
+        <input type="hidden" name="input_text" value="">
+        <input type="hidden" name="amount" value="100">
+        <button type="submit">100</button>
+    </form>
+    <button onclick="goBack()">Go Back</button>
+    <script>
+        function goBack() {
+        window.history.back();
+        }
+    </script>
 </body>
 </html>

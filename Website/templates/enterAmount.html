@@ -9,5 +9,19 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body class="enterAmountBody">
+    <form action="{{ url_for('goodBye.goodBye') }}" method="GET">
+        <button type="submit">Quit</button>
+    </form>
+    <button onclick="goBack()">Go Back</button>
+    <script>
+        function goBack() {
+        window.history.back();
+        }
+    </script>
+        <form action="{{ url_for('bePatient.bePatient') }}" method="POST">
+            <input type="text" id="input_text" name="input_text" required>
+            <input type="hidden" name="amount" value="">
+            <button type="submit">OK</button>
+        </form>
 </body>
 </html>

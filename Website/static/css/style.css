@@ -97,6 +97,45 @@ body {
     background-repeat: no-repeat;
     background-position: center;
 }
+.bePatientBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/bePatient.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.takeMoneyBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/takeMoney.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.receiptChoiceBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/receiptChoice.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+.takeReceiptBody {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../images/takeReceipt.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
 form {
+    margin-top: auto;
+}
+button {
     margin-top: auto;
 }

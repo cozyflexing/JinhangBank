@@ -15,5 +15,12 @@
         <form action="{{ url_for('pickLanguage.pickLanguage') }}" method="GET">
             <button type="submit">Pick Language</button>
         </form>
+        <button onclick="goBack()">Go Back</button>
+
+        <script>
+        function goBack() {
+        window.history.back();
+        }
+        </script>
 </body>
 </html>
