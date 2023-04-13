@@ -133,8 +133,11 @@ function loadStoredLanguage() {
     const storedLanguage = localStorage.getItem('language');
     if (storedLanguage) {
         changeLanguage(storedLanguage);
+    } else {
+        changeLanguage('en');
     }
 }
+
 
 // Load the stored language when the page is loaded
 document.addEventListener('DOMContentLoaded', loadStoredLanguage);

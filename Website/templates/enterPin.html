@@ -11,12 +11,12 @@
 </head>
 <body class="enterPinBody">
         <form action="{{ url_for('makeChoice.makeChoice') }}" method="GET">
-            <button type="submit">Go to Make a Choice</button>
+            <button data-translate="makeAChoice" type="submit"></button>
         </form>
         <form action="{{ url_for('pickLanguage.pickLanguage') }}" method="GET">
-            <button type="submit">Pick Language</button>
+            <button data-translate="chooseYourLanguage" type="submit"></button>
         </form>
-        <button onclick="goBack()">Go Back</button>
+        <button data-translate="goBack" onclick="goBack()"></button>
 
         <script>
         function goBack() {

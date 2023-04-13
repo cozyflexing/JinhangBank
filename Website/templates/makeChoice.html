@@ -11,18 +11,18 @@
 </head>
 <body class="makeChoiceBody">
     <form action="{{ url_for('showBalance.showBalance') }}" method="GET">
-        <button type="submit">Show Balance</button>
+        <button data-translate="showBalance" type="submit"></button>
     </form>
     <form action="{{ url_for('chooseAmount.chooseAmount') }}" method="GET">
-        <button type="submit">Withdraw Money</button>
+        <button data-translate="withdrawMoney" type="submit"></button>
     </form>
     <form action="{{ url_for('changePin.changePin') }}" method="GET">
-        <button type="submit">Change Pin</button>
+        <button data-translate="changePin" type="submit"></button>
     </form>
     <form action="{{ url_for('goodBye.goodBye') }}" method="GET">
-        <button type="submit">Quit</button>
+        <button data-translate="quit" type="submit"></button>
     </form>
-    <button onclick="goBack()">Go Back</button>
+    <button data-translate="goBack" onclick="goBack()"></button>
 
     <script>
     function goBack() {

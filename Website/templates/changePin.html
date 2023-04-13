@@ -11,9 +11,9 @@
 </head>
 <body class="changePinBody">
     <form action="{{ url_for('goodBye.goodBye') }}" method="GET">
-        <button type="submit">Quit</button>
+        <button data-translate="quit" type="submit"></button>
     </form>
-    <button onclick="goBack()">Go Back</button>
+    <button data-translate="goBack" onclick="goBack()"></button>
     <script>
         function goBack() {
         window.history.back();
