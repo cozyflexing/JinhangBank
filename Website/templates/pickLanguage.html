@@ -7,19 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title></title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/translations.js') }}"></script>
 </head>
 <body class="pickLanguageBody">
     <form action="{{ url_for('scanCard.scanCard') }}" method="GET">
-        <button type="submit">Nederlands</button>
+        <button onclick="changeLanguage('nl')">Nederlands</button>
     </form>
     <form action="{{ url_for('scanCard.scanCard') }}" method="GET">
-        <button type="submit">Deutsch</button>
+        <button onclick="changeLanguage('en')">English</button>
     </form>
     <form action="{{ url_for('scanCard.scanCard') }}" method="GET">
-        <button type="submit">Français</button>
+        <button onclick="changeLanguage('de')">Deutsch</button>
+    </form>
+    <form action="{{ url_for('scanCard.scanCard') }}" method="GET">
+        <button onclick="changeLanguage('fr')">Français</button>
     </form>
     <form action="{{ url_for('goodBye.goodBye') }}" method="GET">
-        <button type="submit">Quit</button>
+        <button data-translate="quit" type="submit">Quit</button>
     </form>
     <button onclick="goBack()">Go Back</button>
     <script>
