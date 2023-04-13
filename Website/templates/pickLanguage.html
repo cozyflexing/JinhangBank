@@ -1,4 +1,4 @@
-<!-- index.html -->
+<!-- pickLanguage.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +9,19 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body class="pickLanguageBody">
+    <form action="{{ url_for('index.index') }}" method="GET">
+        <button type="submit">Nederlands</button>
+    </form>
+    <form action="{{ url_for('index.index') }}" method="GET">
+        <button type="submit">Deutsch</button>
+    </form>
+    <form action="{{ url_for('index.index') }}" method="GET">
+        <button type="submit">Français</button>
+    </form>
+    <form action="{{ url_for('goodBye.goodBye') }}" method="GET">
+        <button type="submit">Quit</button>
+    </form>
     <button onclick="goBack()">Go Back</button>
-
     <script>
     function goBack() {
     window.history.back();
