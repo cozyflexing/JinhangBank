@@ -9,7 +9,7 @@ def create_app():
         static_folder="/Users/aleniriskic/Desktop/JinhangBank/Website/static",
     )
 
-    from .index import index_bp
+    from .scanCard import scanCard_bp
     from .enterPin import enterPin_bp
     from .makeChoice import makeChoice_bp
     from .goodBye import goodBye_bp
@@ -25,7 +25,7 @@ def create_app():
     from .receiptChoice import receiptChoice_bp
     from .takeReceipt import takeReceipt_bp
 
-    app.register_blueprint(index_bp)
+    app.register_blueprint(scanCard_bp)
     app.register_blueprint(enterPin_bp)
     app.register_blueprint(makeChoice_bp)
     app.register_blueprint(goodBye_bp)
