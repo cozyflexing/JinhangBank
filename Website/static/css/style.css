@@ -1,40 +1,102 @@
 /* style.css */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 html, body {
     margin: 0;
     height: 100%;
     width: 100%;
     overflow: hidden;
+    font-family: 'Inter', sans-serif;
 }
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.scanCardBody {
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: repeat(8, 1fr);
+    font-family: 'Inter', sans-serif;
     background-image: url("../images/scanCard.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+.scanCardItem-1{
+    grid-area: 4/2/7/6;
+    justify-self: center;
+    align-self: center;
+}
+.scanCardItem-2{
+    grid-area: 5/7/6/8;
+}      
+.scanCardItem-3{
+    grid-area: 8/3/8/8;
+    align-self: last baseline;
+}
+.scanCardItem-4{
+    grid-area: 7/7/9/9;
+    justify-self: start;
+    align-self: center;
+}
+.scanCardItem-4 button{
+    background: none;
+    border: none;
+    width: 208.61px;
+    height: 101.35px;
+}      
 
 .enterPinBody {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: repeat(8, 1fr);
+    font-family: 'Inter', sans-serif;
     background-image: url("../images/enterPincode.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+.enterPinItem-1{
+    grid-area: 4/2/4/3;
+}
+.enterPinItem-2{
+    grid-area: 4/5/4/8;
+}      
+.enterPinItem-4{
+    grid-area: 7/7/9/9;
+}      
 .makeChoiceBody {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: repeat(8, 1fr);
+    font-family: 'Inter', sans-serif;
     background-image: url("../images/makeFunctionChoice.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+.makeChoiceItem-1{
+    grid-area: 2/6/3/7;
+    justify-self: center;
+    align-self: center;
+}
+.makeChoiceItem-2{
+    grid-area: 4/6/5/7;
+    justify-self: center;
+    align-self: center;
+}      
+.makeChoiceItem-3{
+    grid-area: 5/6/6/7;
+    justify-self: center;
+    align-self:last baseline;
+}
+.quitItem{
+    grid-area: 7/6/8/7;
+    justify-self: center;
+    align-self: center;
+}  
+.goBackItem{
+    grid-area: 1/2/1/3;
+    align-self: center;
+}  
 .goodByeBody {
+    font-family: 'Inter', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,6 +106,7 @@ body {
     background-position: center;
 }
 .changePinBody {
+    font-family: 'Inter', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,24 +116,39 @@ body {
     background-position: center;
 }
 .chooseAmountBody {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: repeat(8, 1fr);
+    font-family: 'Inter', sans-serif;
     background-image: url("../images/pickAmount.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+.chooseAmount20{
+    grid-area: 4/3/4/4;
+}
+.chooseAmount50{
+    grid-area: 6/3/6/4;
+}
+.chooseAmount70{
+    grid-area: 4/6/4/7;
+}
+.chooseAmount100{
+    grid-area: 6/6/6/7;
+}
 .showBalanceBody {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: repeat(8, 1fr);
+    font-family: 'Inter', sans-serif;
     background-image: url("../images/balanceShown.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 .amountUnavailableBody {
+    font-family: 'Inter', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -80,6 +158,7 @@ body {
     background-position: center;
 }
 .enterAmountBody {
+    font-family: 'Inter', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,6 +168,7 @@ body {
     background-position: center;
 }
 .pickLanguageBody {
+    font-family: 'Inter', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -98,6 +178,7 @@ body {
     background-position: center;
 }
 .bePatientBody {
+    font-family: 'Inter', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -107,6 +188,7 @@ body {
     background-position: center;
 }
 .takeMoneyBody {
+    font-family: 'Inter', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -116,6 +198,7 @@ body {
     background-position: center;
 }
 .receiptChoiceBody {
+    font-family: 'Inter', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -125,6 +208,7 @@ body {
     background-position: center;
 }
 .takeReceiptBody {
+    font-family: 'Inter', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -132,10 +216,4 @@ body {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-}
-form {
-    margin-top: auto;
-}
-button {
-    margin-top: auto;
 }

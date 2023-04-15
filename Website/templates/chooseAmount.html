@@ -16,30 +16,42 @@
     <form action="{{ url_for('enterAmount.enterAmount') }}" method="GET">
         <button data-translate="enterAmount" type="submit"></button>
     </form>
-    <form action="{{ url_for('goodBye.goodBye') }}" method="GET">
-        <button data-translate="quit" type="submit"></button>
-    </form>
-    <form action="{{ url_for('bePatient.bePatient') }}" method="POST">
-        <input type="hidden" name="input_text" value="">
-        <input type="hidden" name="amount" value="20">
-        <button type="submit">20</button>
-    </form>
-    <form action="{{ url_for('bePatient.bePatient') }}" method="POST">
-        <input type="hidden" name="input_text" value="">
-        <input type="hidden" name="amount" value="50">
-        <button type="submit">50</button>
-    </form>
-    <form action="{{ url_for('bePatient.bePatient') }}" method="POST">
-        <input type="hidden" name="input_text" value="">
-        <input type="hidden" name="amount" value="70">
-        <button type="submit">70</button>
-    </form>
-    <form action="{{ url_for('bePatient.bePatient') }}" method="POST">
-        <input type="hidden" name="input_text" value="">
-        <input type="hidden" name="amount" value="100">
-        <button type="submit">100</button>
-    </form>
-    <button data-translate="goBack" onclick="goBack()"></button>
+    <div class="chooseAmount20">
+        <form action="{{ url_for('bePatient.bePatient') }}" method="POST">
+            <input type="hidden" name="input_text" value="">
+            <input type="hidden" name="amount" value="20">
+            <button type="submit">20</button>
+        </form>
+    </div>
+    <div class="chooseAmount50">
+        <form action="{{ url_for('bePatient.bePatient') }}" method="POST">
+            <input type="hidden" name="input_text" value="">
+            <input type="hidden" name="amount" value="50">
+            <button type="submit">50</button>
+        </form>
+    </div>
+    <div class="chooseAmount70">
+        <form action="{{ url_for('bePatient.bePatient') }}" method="POST">
+            <input type="hidden" name="input_text" value="">
+            <input type="hidden" name="amount" value="70">
+            <button type="submit">70</button>
+        </form>
+    </div>
+    <div class="chooseAmount100">
+        <form action="{{ url_for('bePatient.bePatient') }}" method="POST">
+            <input type="hidden" name="input_text" value="">
+            <input type="hidden" name="amount" value="100">
+            <button type="submit">100</button>
+        </form>
+    </div>
+    <div class="goBackItem">
+        <button data-translate="goBack" onclick="goBack()"></button>
+    </div>
+    <div class="quitItem">
+        <form action="{{ url_for('goodBye.goodBye') }}" method="GET">
+            <button data-translate="quit" type="submit"></button>
+        </form>
+    </div>
     <script>
         function goBack() {
         window.history.back();
