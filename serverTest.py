@@ -1,27 +1,13 @@
-import mysql.connector
+import requests, json
 
-# Establish a connection to the database
-cnx = mysql.connector.connect(
-    user="ubuntu-1051158",
-    password="NS24^vpY",
-    host="145.24.222.16",
-    database="JinhangBank",
-)
+url = "http://145.24.222.16:8000/api/data"
+response = requests.get(url)
 
-# Create a cursor object
-cursor = cnx.cursor()
+if response.status_code == 200:
+    data = response.json()
+    print("API response:", data)
+else:
+    print("Error:", response.status_code, response.text)
 
-# Execute a query
-query = "SELECT * FROM klanten"
-cursor.execute(query)
-
-# Fetch the results
-result = cursor.fetchall()
-
-# Print the results
-for row in result:
-    print(row)
-
-# Close the cursor and connection
-cursor.close()
-cnx.close()
+with open("bankdata.json", "w") as file:
+    json.dump(data, file, indent=2)
