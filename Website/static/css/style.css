@@ -47,7 +47,7 @@ html, body {
     grid-template-rows: repeat(8, 1fr);
     grid-template-columns: repeat(8, 1fr);
     font-family: 'Inter', sans-serif;
-    background-image: url("../images/enterPincode.png");
+    background-image: url("../images/enterPin.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -66,7 +66,7 @@ html, body {
     grid-template-rows: repeat(8, 1fr);
     grid-template-columns: repeat(8, 1fr);
     font-family: 'Inter', sans-serif;
-    background-image: url("../images/makeFunctionChoice.png");
+    background-image: url("../images/makeAChoice.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -110,7 +110,7 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("../images/enterNewPincode.png");
+    background-image: url("../images/enterNewPin.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -142,7 +142,7 @@ html, body {
     grid-template-rows: repeat(8, 1fr);
     grid-template-columns: repeat(8, 1fr);
     font-family: 'Inter', sans-serif;
-    background-image: url("../images/balanceShown.png");
+    background-image: url("../images/showBlance.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -152,7 +152,7 @@ html, body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("../images/amountUnavailable.png");
+    background-image: url("../images/unavailable.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
