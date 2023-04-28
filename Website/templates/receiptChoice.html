@@ -10,11 +10,16 @@
     <script src="{{ url_for('static', filename='js/translations.js') }}"></script>
 </head>
 <body class="receiptChoiceBody">
-    <form action="{{ url_for('bePatientReceipt.bePatientReceipt') }}" method="GET">
-        <button data-translate="yes" type="submit"></button>
-    </form>
-    <form action="{{ url_for('goodBye.goodBye') }}" method="GET">
-        <button data-translate="no" type="submit"></button>
-    </form>
+    <h1 data-translate="wantReceipt"></h1>
+    <div class="yesReceipt">
+        <form action="{{ url_for('bePatientReceipt.bePatientReceipt') }}" method="GET">
+            <button data-translate="yes" type="submit"></button>
+        </form>
+    </div>
+    <div class="noReceipt">
+        <form action="{{ url_for('goodBye.goodBye') }}" method="GET">
+            <button data-translate="no" type="submit"></button>
+        </form>
+    </div>
 </body>
 </html>

@@ -30,18 +30,17 @@ html, body {
     grid-area: 8/3/8/8;
     align-self: last baseline;
 }
-.scanCardItem-4{
+.pickLanguageItem{
     grid-area: 7/7/9/9;
     justify-self: start;
     align-self: center;
 }
-.scanCardItem-4 button{
+.pickLanguageItem button{
     background: none;
     border: none;
     width: 208.61px;
     height: 101.35px;
 }      
-
 .enterPinBody {
     display: grid;
     grid-template-rows: repeat(8, 1fr);
@@ -71,49 +70,97 @@ html, body {
     background-repeat: no-repeat;
     background-position: center;
 }
-.makeChoiceItem-1{
+.showBalanceForm{
     grid-area: 2/6/3/7;
     justify-self: center;
     align-self: center;
 }
-.makeChoiceItem-2{
+.withdrawMoneyForm{
     grid-area: 4/6/5/7;
     justify-self: center;
     align-self: center;
 }      
-.makeChoiceItem-3{
+.changePinForm{
     grid-area: 5/6/6/7;
     justify-self: center;
     align-self:last baseline;
+} 
+.showBalanceForm button{
+    width: 420px;
+    height: 110px;
+    transform: translate(90px,0px);
+    background: none;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 35px;
 }
-.quitItem{
-    grid-area: 7/6/8/7;
-    justify-self: center;
-    align-self: center;
-}  
-.goBackItem{
-    grid-area: 1/2/1/3;
-    align-self: center;
-}  
+.withdrawMoneyForm button{
+    width: 420px;
+    height: 110px;
+    transform: translate(90px,-30px);
+    background: none;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 35px;
+}
+.changePinForm button{
+    width: 420px;
+    height: 110px;
+    transform: translate(90px,40px);
+    background: none;
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 35px;
+}
+.makeChoiceText{
+    grid-area: 5/3/5/7;
+    font-size: 35px;
+    font-weight: bold;
+    transform: translate(50px,-30px);
+}
 .goodByeBody {
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     font-family: 'Inter', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-image: url("../images/goodBye.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+.goodByeBody h1{
+    grid-area: 3/3/3/8;
+    justify-self: center;
+    transform: translate(-90px, 50px);
+    color: black;
+    font-size: 35px;
+    font-weight: bold; 
+}
 .changePinBody {
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     font-family: 'Inter', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-image: url("../images/enterNewPin.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+}
+.changePinBody h3{
+    grid-area: 5/4/5/6;
+    justify-self: center;
+    font-weight: bold;
+    transform: translate(0px, 20px);
+}
+.changePinBody h1{
+    grid-area: 3/2/3/7;
+    justify-self: center;
+    font-weight: bold;
+    font-size: 35px;
+    transform: translate(80px, 40px);
 }
 .chooseAmountBody {
     display: grid;
@@ -127,15 +174,60 @@ html, body {
 }
 .chooseAmount20{
     grid-area: 4/3/4/4;
+    justify-self: center;
+}
+.chooseAmount20 button {
+    width: 420px;
+    height: 100px;
+    transform: translate(-130px, -80px);
+    background: none;
+    border: none;
 }
 .chooseAmount50{
     grid-area: 6/3/6/4;
+    justify-self: center;
+}
+.chooseAmount50 button {
+    width: 420px;
+    height: 100px;
+    transform: translate(-130px, -80px);
+    background: none;
+    border: none;
 }
 .chooseAmount70{
     grid-area: 4/6/4/7;
+    justify-self: center;
+}
+.chooseAmount70 button {
+    width: 420px;
+    height: 100px;
+    transform: translate(40px, -80px);
+    background: none;
+    border: none;
 }
 .chooseAmount100{
     grid-area: 6/6/6/7;
+    justify-self: center;
+}
+.chooseAmount100 button {
+    width: 420px;
+    height: 100px;
+    transform: translate(40px, -80px);
+    background: none;
+    border: none;
+}
+.otherAmount{
+    grid-area: 7/6/7/7;
+    justify-self: center;
+    transform: translate(50px, 50px);
+}
+.otherAmount button{
+    font-weight: bold;
+    font-size: 35px;
+    color: white;
+    background: none;
+    border: none;
+    transform: translate(-50px, -10px);
 }
 .showBalanceBody {
     display: grid;
@@ -147,73 +239,243 @@ html, body {
     background-repeat: no-repeat;
     background-position: center;
 }
+.showBalanceBody h1{
+    grid-area: 3/4/3/6;
+    justify-self: center;
+    font-weight: bold;
+    font-size: 35px;
+    transform: translate(0px, 20px);
+}
+.showBalanceBody h4{
+    grid-area: 4/4/4/6;
+    justify-self: center;
+    font-weight: bold;
+    color: white;
+    transform: translate(0px, 25px);
+    font-size: 30px;
+}
+.showBalanceBody h3{
+    grid-area: 5/4/5/6;
+    justify-self: center;
+    font-weight: bold;
+}
 .amountUnavailableBody {
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     font-family: 'Inter', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-image: url("../images/unavailable.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 .enterAmountBody {
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     font-family: 'Inter', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-image: url("../images/enterAmount.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+.enterAmountForm{
+    grid-area: 5/3/5/7;
+    justify-self: center;
+    transform: translate(8px, -30px);
+}
+.enterAmountForm button{
+    background: none;
+    border: none;
+}
+.enterAmountForm input {
+    height: 50px;
+    width: 600px;
+    color: white;
+    background-color: black;
+    border: none;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+}
+.enterAmountBody h1{
+    grid-area: 3/4/3/6;
+    justify-self: center;
+    font-weight: bold;
+    font-size: 35px;
+    transform: translate(0px, 20px);
+}
+.enterAmountBody p{
+    grid-area: 4/4/4/6;
+    justify-self: center;
+}
+.enterAmountBody h3{
+    grid-area: 5/4/5/6;
+    justify-self: center;
+    font-weight: bold;
+    transform: translate(0px, 20px);
+}
 .pickLanguageBody {
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     font-family: 'Inter', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-image: url("../images/pickLanguage.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+.pickLanguageBody button{
+    width: 500px;
+    height: 110px;
+    border: none;
+    background: none;
+}
+.nederlandsItem{
+    grid-area: 2/6/2/7;
+    transform: translate(30px, 10px);
+}
+.deutschItem{
+    grid-area: 3/6/3/7;
+    transform: translate(30px, 70px);
+}
+.francaisItem{
+    grid-area: 5/6/5/7;
+    transform: translate(30px, 30px);
+}
+.englishItem{
+    grid-area: 7/6/8/7;
+    transform: translate(30px, -10px);
+}
 .bePatientBody {
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     font-family: 'Inter', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-image: url("../images/bePatient.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+.bePatientBody h1{
+    grid-area: 7/3/7/8;
+    justify-self: center;
+    transform: translate(-90px, 0px);
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+}
 .takeMoneyBody {
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     font-family: 'Inter', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-image: url("../images/takeMoney.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+.takeMoneyBody h1{
+    grid-area: 7/3/7/8;
+    justify-self: center;
+    transform: translate(-90px, 50px);
+    color: white;
+    font-size: 35px;
+    font-weight: bold; 
+}
 .receiptChoiceBody {
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     font-family: 'Inter', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-image: url("../images/receiptChoice.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
+.noReceipt{
+    grid-area: 8/2/8/4;
+    justify-self: center;
+    transform: translate(0px, -60px);
+}
+.yesReceipt{
+    grid-area: 8/6/8/8;
+    justify-self: center;
+    transform: translate(0px, -60px);
+}
+.yesReceipt button{
+    width: 420px;
+    height: 100px;
+    color: white;
+    font-weight: bold;
+    font-size: 35px;
+    background: none;
+    border: none;
+}
+.noReceipt button{
+    width: 420px;
+    height: 100px;
+    color: white;
+    font-weight: bold;
+    font-size: 35px;
+    background: none;
+    border: none;
+}
+.receiptChoiceBody h1{
+    grid-area: 5/4/5/7;
+    transform: translate(0px, -30px);
+}
 .takeReceiptBody {
+    display: grid;
+    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: repeat(8, 1fr);
     font-family: 'Inter', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background-image: url("../images/takeReceipt.png");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+}
+.quitItem{
+    grid-area: 7/1/8/3;
+    transform: translate(100px,40px);
+}
+.quitItem button {
+    color: white;
+    font-weight: bold;
+    font-size: 35px;
+    background: none;
+    border: none;
+}
+.goBackItem{
+    grid-area: 1/2/1/3;
+    align-self: center;
+    transform: translate(-20px,0px);
+} 
+.goBackItem button {
+    width: 100px;
+    height: 110px;
+    border: none;
+    background: none;
+}
+.quitItemEnterPin {
+    grid-area: 7/1/8/3;
+    transform: translate(280px,70px);
+}
+.quitItemEnterPin button {
+    color: white;
+    font-weight: bold;
+    font-size: 35px;
+    background: none;
+    border: none;
+}
+.quitItemChooseAmount{
+    grid-area: 7/1/8/3;
+    transform: translate(300px,40px);
+}
+.quitItemChooseAmount button {
+    color: white;
+    font-weight: bold;
+    font-size: 35px;
+    background: none;
+    border: none;
 }

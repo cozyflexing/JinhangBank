@@ -10,22 +10,34 @@
     <script src="{{ url_for('static', filename='js/translations.js') }}"></script>
 </head>
 <body class="pickLanguageBody">
-    <form action="{{ url_for('scanCard.scanCard') }}" method="GET">
-        <button onclick="changeLanguage('nl')">Nederlands</button>
-    </form>
-    <form action="{{ url_for('scanCard.scanCard') }}" method="GET">
-        <button onclick="changeLanguage('en')">English</button>
-    </form>
-    <form action="{{ url_for('scanCard.scanCard') }}" method="GET">
-        <button onclick="changeLanguage('de')">Deutsch</button>
-    </form>
-    <form action="{{ url_for('scanCard.scanCard') }}" method="GET">
-        <button onclick="changeLanguage('fr')">Français</button>
-    </form>
-    <form action="{{ url_for('goodBye.goodBye') }}" method="GET">
-        <button data-translate="quit" type="submit"></button>
-    </form>
-    <button data-translate="goBack" onclick="goBack()"></button>
+    <div class="nederlandsItem">
+        <form action="{{ url_for('scanCard.scanCard') }}" method="GET">
+            <button onclick="changeLanguage('nl')"></button>
+        </form>
+    </div>
+    <div class="englishItem">
+        <form action="{{ url_for('scanCard.scanCard') }}" method="GET">
+            <button onclick="changeLanguage('en')"></button>
+        </form>
+    </div>
+    <div class="deutschItem">
+        <form action="{{ url_for('scanCard.scanCard') }}" method="GET">
+            <button onclick="changeLanguage('de')"></button>
+        </form>
+    </div>
+    <div class="francaisItem">
+        <form action="{{ url_for('scanCard.scanCard') }}" method="GET">
+            <button onclick="changeLanguage('fr')"></button>
+        </form>
+    </div>
+    <div class="quitItem">
+        <form action="{{ url_for('goodBye.goodBye') }}" method="GET">
+            <button data-translate="quit" type="submit"></button>
+        </form>
+    </div>
+    <div class="goBackItem">
+        <button onclick="goBack()"></button>
+    </div>
     <script>
     function goBack() {
     window.history.back();
