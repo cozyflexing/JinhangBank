@@ -3,7 +3,7 @@ Inlog: ubuntu-1051158
 Wachtwoord: NS24^vpY
 
 // DB Users:
-    - Admin:VoEj6SiLgUWIVkV*U5yLY*0bm7Ie50kL
+    - Admin:adminPasswordisholydonotgetitwrong
 
 // COMMANDS:
     - ssh ubuntu-1051158@145.24.222.16

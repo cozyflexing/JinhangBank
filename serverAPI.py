@@ -1,41 +1,30 @@
-from fastapi import FastAPI
-import mariadb
+import mysql.connector
 
-app = FastAPI()
+# Establish a connection to the MariaDB database
+connection = mysql.connector.connect(
+    host="localhost",
+    port=3306,
+    user="root",
+    password="Alenheefteenmacbookairuit2022",  # Replace with your own password
+    database="JinhangBank",
+)
 
-config = {
-    "host": "localhost",
-    "port": 3306,
-    "user": "Admin",
-    "password": "VoEj6SiLgUWIVkV*U5yLY*0bm7Ie50kL",
-    "database": "JinhangBankAPI",
-}
+# Create a cursor object to execute SQL queries
+cursor = connection.cursor()
 
+# Define the SQL query
+sql_query = "SELECT * FROM klanten;"
 
-@app.get("/api/data")
-async def get_data():
-    try:
-        conn = mariadb.connect(**config)
-        cursor = conn.cursor()
-        cursor.execute("SELECT * FROM adressen")
-        resultAdressen = cursor.fetchall()
-        cursor.execute("SELECT * FROM klanten")
-        resultKlanten = cursor.fetchall()
-        cursor.execute("SELECT * FROM bankpassen")
-        resultBankpassen = cursor.fetchall()
-        cursor.execute("SELECT * FROM rekeningen")
-        resultRekeningen = cursor.fetchall()
-        cursor.execute("SELECT * FROM transacties")
-        resultTransacties = cursor.fetchall()
-    except mariadb.Error as e:
-        return {"error": str(e)}
-    finally:
-        if conn:
-            conn.close()
-    return {
-        "adressen": resultAdressen,
-        "klanten": resultKlanten,
-        "bankpassen": resultBankpassen,
-        "rekeningen": resultRekeningen,
-        "transacties": resultTransacties,
-    }
+# Execute the SQL query using the cursor
+cursor.execute(sql_query)
+
+# Fetch all rows from the executed query
+rows = cursor.fetchall()
+
+# Print the fetched rows
+for row in rows:
+    print(row)
+
+# Close the cursor and connection
+cursor.close()
+connection.close()

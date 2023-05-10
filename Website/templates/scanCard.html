@@ -8,15 +8,19 @@
     <title>Flask Background Image</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <script src="{{ url_for('static', filename='js/translations.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
 </head>
 <body class="scanCardBody">
         <div class="scanCardItem-1">
             <h1 class="scanCardText" data-translate="scanCard"></h1>
         </div>
         <div class="scanCardItem-2">
-            <form class="scanCardForm" action="{{ url_for('enterPin.enterPin') }}" method="GET">
-                <button data-translate="enterPin" type="submit"></button>
-            </form>
+            <form id="usernameForm">
+                <label for="username">Enter your username:</label>
+                <input type="text" id="username" name="username" required>
+                <button type="submit">Submit</button>
+            </form>                     
         </div>
         <div class="scanCardItem-3">
             <h1 class="doNotSharePin" data-translate="neverShare"></h1>
