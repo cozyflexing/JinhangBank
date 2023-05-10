@@ -5,7 +5,7 @@ connection = mysql.connector.connect(
     host="localhost",
     port=3306,
     user="root",
-    password="Alenheefteenmacbookairuit2022",  # Replace with your own password
+    password="Alenheefteenmacminiuit2022",  # Replace with your own password
     database="JinhangBank",
 )
 
