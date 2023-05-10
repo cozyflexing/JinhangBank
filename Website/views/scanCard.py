@@ -15,20 +15,6 @@ def connect_to_db():
     )
 
 
-@scanCard_bp.route("/", methods=["POST", "GET"])
+@scanCard_bp.route("/")
 def scanCard():
-    if request.method == "POST":
-        pas_nummer = request.form["usernameForm"]
-        connection = connect_to_db()
-        cursor = connection.cursor()
-        cursor.execute("SELECT * FROM bankpassen WHERE pas_nummer = %s", (pas_nummer,))
-        result = cursor.fetchone()
-        cursor.close()
-        connection.close()
-
-        if result:
-            return redirect(url_for("enterPin", bankpas_id=result[0]))
-        else:
-            return render_template("scanCard.html")
-    else:
-        return render_template("scanCard.html")
+    return render_template("scanCard.html")
