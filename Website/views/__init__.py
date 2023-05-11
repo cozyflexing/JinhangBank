@@ -25,6 +25,9 @@ def create_app():
     from .takeMoney import takeMoney_bp
     from .receiptChoice import receiptChoice_bp
     from .takeReceipt import takeReceipt_bp
+    from .verifyPasNummer import verifyPasNummer_bp
+    from .verifyPinCode import verifyPinCode_bp
+    from .blocked import blocked_bp
 
     app.register_blueprint(scanCard_bp)
     app.register_blueprint(enterPin_bp)
@@ -41,5 +44,8 @@ def create_app():
     app.register_blueprint(takeMoney_bp)
     app.register_blueprint(receiptChoice_bp)
     app.register_blueprint(takeReceipt_bp)
+    app.register_blueprint(verifyPasNummer_bp)
+    app.register_blueprint(verifyPinCode_bp)
+    app.register_blueprint(blocked_bp)
 
     return app

@@ -16,9 +16,8 @@
             <h1 class="scanCardText" data-translate="scanCard"></h1>
         </div>
         <div class="scanCardItem-2">
-            <form id="usernameForm">
-                <label for="username">Enter your username:</label>
-                <input type="text" id="username" name="username" required>
+            <form action="{{ url_for('verifyPasNummer.verifyPasNummer') }}" method="POST">
+                <input type="text" id="pas_nummer" name="pas_nummer" required>
                 <button type="submit">Submit</button>
             </form>                     
         </div>

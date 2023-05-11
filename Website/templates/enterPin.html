@@ -14,12 +14,13 @@
             <h1 class="" data-translate="enterPin"></h1>
         </div>
         <div class="enterPinItem-1">
-            <form action="{{ url_for('makeChoice.makeChoice') }}" method="GET">
-                <button data-translate="makeAChoice" type="submit"></button>
+            <form action="{{ url_for('verifyPinCode.enter_pin', bankpas_id=bankpas_id) }}" method="POST">
+                <input type="password" name="pin_code" id="pin_code" required>
+                <button type="submit">Submit</button>
             </form>
         </div>
         <div class="pickLanguageItem">
-            <form  action="{{ url_for('pickLanguage.pickLanguage') }}" method="GET">
+            <form  action="{{ url_for('pickLanguage.pickLanguage', bankpas_id=bankpas_id) }}" method="GET">
                 <button type="submit"></button>
             </form>
         </div>
