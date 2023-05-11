@@ -16,30 +16,30 @@
         </form>
     </div>
     <div class="chooseAmount20">
-        <form action="{{ url_for('bePatient.bePatient') }}" method="POST">
+        <form action="{{ url_for('bePatient.bePatient', bankpas_id=bankpas_id) }}" method="POST">
             <input type="hidden" name="input_text" value="">
-            <input type="hidden" name="amount" value="20">
+            <input type="hidden" name="amount" id="amount" value="20">
             <button type="submit"></button>
         </form>
     </div>
     <div class="chooseAmount50">
-        <form action="{{ url_for('bePatient.bePatient') }}" method="POST">
+        <form action="{{ url_for('bePatient.bePatient', bankpas_id=bankpas_id) }}" method="POST">
             <input type="hidden" name="input_text" value="">
-            <input type="hidden" name="amount" value="50">
+            <input type="hidden" name="amount" id="amount" value="50">
             <button type="submit"></button>
         </form>
     </div>
     <div class="chooseAmount70">
-        <form action="{{ url_for('bePatient.bePatient') }}" method="POST">
+        <form action="{{ url_for('bePatient.bePatient', bankpas_id=bankpas_id) }}" method="POST">
             <input type="hidden" name="input_text" value="">
-            <input type="hidden" name="amount" value="70">
+            <input type="hidden" name="amount" id="amount" value="70">
             <button type="submit"></button>
         </form>
     </div>
     <div class="chooseAmount100">
-        <form action="{{ url_for('bePatient.bePatient') }}" method="POST">
+        <form action="{{ url_for('bePatient.bePatient', bankpas_id=bankpas_id) }}" method="POST">
             <input type="hidden" name="input_text" value="">
-            <input type="hidden" name="amount" value="100">
+            <input type="hidden" name="amount" id="amount" value="100">
             <button type="submit"></button>
         </form>
     </div>

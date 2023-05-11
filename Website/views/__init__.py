@@ -10,6 +10,7 @@ def create_app():
         static_folder=os.path.join(os.path.dirname(__file__), "../static"),
     )
 
+    # Importing and registering blueprints for different views
     from .scanCard import scanCard_bp
     from .enterPin import enterPin_bp
     from .makeChoice import makeChoice_bp

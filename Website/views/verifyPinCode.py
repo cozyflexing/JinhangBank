@@ -1,3 +1,4 @@
+# views/verifyPinCode.py
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 import mysql.connector
 
@@ -5,6 +6,9 @@ verifyPinCode_bp = Blueprint("verifyPinCode", __name__)
 
 
 def connect_to_db():
+    """
+    Establish a connection to the database.
+    """
     return mysql.connector.connect(
         host="localhost",
         port=3306,
@@ -16,6 +20,9 @@ def connect_to_db():
 
 @verifyPinCode_bp.route("/enterPin/<int:bankpas_id>", methods=["GET", "POST"])
 def enter_pin(bankpas_id):
+    """
+    Verify the pin_code and redirect to the appropriate route based on the verification result.
+    """
     if request.method == "POST":
         pin_code = request.form["pin_code"]
         connection = connect_to_db()
@@ -31,7 +38,7 @@ def enter_pin(bankpas_id):
         if pin_code == pinCode:
             cursor.close()
             connection.close()
-            return redirect(url_for("makeChoice.makeChoice"))
+            return redirect(url_for("makeChoice.makeChoice", bankpas_id=result[0]))
         else:
             incorrect_attempts += 1
             cursor.execute(
