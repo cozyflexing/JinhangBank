@@ -27,7 +27,7 @@ def bePatient(bankpas_id):
             # If no amount is specified in the form, do nothing
             pass
         else:
-            amount_to_withdraw = request.form["amount"]
+            amount_to_withdraw = int(request.form["amount"])
 
             # Retrieve the account number associated with the bankpas_id
             cursor.execute(

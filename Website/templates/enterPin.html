@@ -13,10 +13,10 @@
         <div class="enterPinItem-2">
             <h1 class="" data-translate="enterPin"></h1>
         </div>
-        <div class="enterPinItem-1">
+        <div class="enterPinForm">
             <form action="{{ url_for('verifyPinCode.enter_pin', bankpas_id=bankpas_id) }}" method="POST">
-                <input type="password" name="pin_code" id="pin_code" required>
-                <button type="submit">Submit</button>
+                <input autofocus="true" type="password" name="pin_code" id="pin_code" required>
+                <button type="submit"></button>
             </form>
         </div>
         <div class="pickLanguageItem">

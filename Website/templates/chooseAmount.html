@@ -11,7 +11,7 @@
 </head>
 <body class="chooseAmountBody">
     <div class="otherAmount">
-        <form action="{{ url_for('enterAmount.enterAmount') }}" method="GET">
+        <form action="{{ url_for('enterAmount.enterAmount', bankpas_id=bankpas_id) }}" method="GET">
             <button data-translate="otherAmount" type="submit"></button>
         </form>
     </div>

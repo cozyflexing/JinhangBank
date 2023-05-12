@@ -51,15 +51,29 @@ html, body {
     background-repeat: no-repeat;
     background-position: center;
 }
-.enterPinItem-1{
-    grid-area: 4/2/4/3;
+.enterPinForm{
+    grid-area: 5/3/5/7;
+    justify-self: center;
+    transform: translate(155px, 5px);
+}
+.enterPinForm button{
+    background: none;
+    border: none;
+}
+.enterPinForm input {
+    height: 50px;
+    width: 600px;
+    color: white;
+    background-color: black;
+    border: none;
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
 }
 .enterPinItem-2{
     grid-area: 4/5/4/8;
-}      
-.enterPinItem-4{
-    grid-area: 7/7/9/9;
-}      
+    transform: translate(40px, 0px);
+}
 .makeChoiceBody {
     display: grid;
     grid-template-rows: repeat(8, 1fr);
@@ -434,6 +448,14 @@ html, body {
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+}
+.takeReceiptBody h1{
+    grid-area: 7/3/7/8;
+    justify-self: center;
+    transform: translate(-90px, 0px);
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
 }
 .blockedBody {
     display: grid;
