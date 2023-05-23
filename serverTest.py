@@ -1,22 +1,25 @@
 # views/verifyPasNummer.py
-import mysql.connector
+from sqlalchemy import create_engine, MetaData, Table, select
 
 
 def connect_to_db():
-    return mysql.connector.connect(
-        host="localhost",
-        port=3306,
-        user="root",
-        password="Alenheefteenmacbookairuit2022",
-        database="JinhangBank",
+    engine = create_engine(
+        "mysql+pymysql://root:Alenheefteenmacbookairuit2022@localhost:3306/JinhangBank"
     )
+    return engine
 
 
 id = 1
-connection = connect_to_db()
-cursor = connection.cursor()
-cursor.execute(f"SELECT * FROM bankpassen WHERE bankpas_id = {id}")
-result = cursor.fetchone()
-print(result)
-cursor.close()
-connection.close()
+engine = connect_to_db()
+
+# reflect an existing table called 'bankpassen'
+metadata = MetaData()
+bankpassen = Table("bankpassen", metadata, autoload_with=engine)
+
+# equivalent to 'SELECT * FROM bankpassen WHERE bankpas_id = id'
+query = select(bankpassen).where(bankpassen.columns.bankpas_id == id)
+
+with engine.connect() as connection:
+    result = connection.execute(query)
+    row = result.fetchone()
+    print(row)

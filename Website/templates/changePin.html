@@ -17,8 +17,8 @@
         </form>
     </div>
     <div class="enterAmountForm">
-        <form action="{{ url_for('bePatient.bePatient', bankpas_id=bankpas_id) }}" method="POST">
-            <input autofocus="true" type="text" id="input_text" name="input_text" required>
+        <form action="{{ url_for('bePatient.bePatientNewPin', bankpas_id=bankpas_id) }}" method="POST">
+            <input autofocus="true" type="text" id="new_pin" name="new_pin" required>
             <input type="hidden" name="amount" value="">
             <button type="submit"></button>
         </form>
