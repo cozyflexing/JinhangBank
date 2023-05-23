@@ -8,4 +8,4 @@ Wachtwoord: NS24^vpY
 
 // COMMANDS:
     - ssh ubuntu-1051158@145.24.222.16
-    - sudo mysql -u root -p
+    - sudo mysql -u root -
