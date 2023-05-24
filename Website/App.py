@@ -1,16 +1,21 @@
 # app.py
 from views import create_app
-from db import create_tunnel
+from db import create_tunnel, db
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = create_app()
-# db, tunnel = create_tunnel()
 
-app.secret_key = "some_secret_key"
+with app.app_context():
+    db, tunnel = create_tunnel(app)
+    db.init_app(app)
+
+app.secret_key = os.getenv("SECRET_KEY")
 
 if __name__ == "__main__":
     try:
-        # tunnel.start()
         app.run(debug=True)
     finally:
-        pass
-        # tunnel.stop()
+        tunnel.stop()

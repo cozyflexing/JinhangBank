@@ -1,19 +1,9 @@
 # views/verifyPasNummer.py
 from flask import Blueprint, render_template, request, redirect, url_for
-import mysql.connector
+from models import Bankpassen
+from db import db
 
 verifyPasNummer_bp = Blueprint("verifyPasNummer", __name__)
-
-
-def connect_to_db():
-    # Function to establish a connection to the database
-    return mysql.connector.connect(
-        host="localhost",
-        port=3306,
-        user="root",
-        password="Alenheefteenmacbookairuit2022",
-        database="JinhangBank",
-    )
 
 
 @verifyPasNummer_bp.route("/verifyPasNummer", methods=["GET", "POST"])
@@ -23,18 +13,15 @@ def verifyPasNummer():
     """
     if request.method == "POST":
         pas_nummer = request.form["pas_nummer"]
-        connection = connect_to_db()
-        cursor = connection.cursor()
-        cursor.execute("SELECT * FROM bankpassen WHERE pas_nummer = %s", (pas_nummer,))
-        result = cursor.fetchone()
-        cursor.close()
-        connection.close()
+        bankpas = Bankpassen.query.filter_by(pas_nummer=pas_nummer).first()
 
-        if result:
-            if result[3] == 3:
+        if bankpas:
+            if bankpas.is_locked == 3:
                 return redirect(url_for("blocked.blocked"))
             else:
-                return redirect(url_for("enterPin.enterPin", bankpas_id=result[0]))
+                return redirect(
+                    url_for("enterPin.enterPin", bankpas_id=bankpas.bankpas_id)
+                )
         else:
             return "THIS CARD DOES NOT EXIST"
     return render_template("scanCard.html")
