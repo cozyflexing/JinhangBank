@@ -70,6 +70,9 @@ html, body {
     font-size: 30px;
     text-align: center;
 }
+input:focus{
+    outline: none;
+}
 .enterPinItem-2{
     grid-area: 4/5/4/8;
     transform: translate(40px, 0px);
