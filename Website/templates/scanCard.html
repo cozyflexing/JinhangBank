@@ -11,7 +11,7 @@
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
 </head>
-<body class="scanCardBody">
+<body class="scanCardBody" onload="redirectToRFID">
         <div class="scanCardItem-1">
             <h1 class="scanCardText" data-translate="scanCard"></h1>
         </div>
@@ -29,5 +29,10 @@
                 <button type="submit"></button>
             </form>
         </div>
+        <script>
+            function redirectToRFID(){
+                window.location.href = "/rfid";
+            }
+        </script>
 </body>
 </html>

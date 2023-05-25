@@ -7,10 +7,8 @@ reader = SimpleMFRC522()
 
 def readRFID():
     try:
-        print("Hold a tag near the reader")
         id, text = reader.read()
-        print("ID: %s\nText: %s" % (id, text))
-        return [id, text]
+        return text
     except KeyboardInterrupt:
         GPIO.cleanup()
         raise

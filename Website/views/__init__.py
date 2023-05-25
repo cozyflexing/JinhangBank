@@ -29,6 +29,7 @@ def create_app():
     from .verifyPasNummer import verifyPasNummer_bp
     from .verifyPinCode import verifyPinCode_bp
     from .blocked import blocked_bp
+    from .RFID import RFID_bp
 
     app.register_blueprint(scanCard_bp)
     app.register_blueprint(enterPin_bp)
@@ -48,5 +49,6 @@ def create_app():
     app.register_blueprint(verifyPasNummer_bp)
     app.register_blueprint(verifyPinCode_bp)
     app.register_blueprint(blocked_bp)
+    app.register_blueprint(RFID_bp)
 
     return app
