@@ -1,31 +1,10 @@
-from sshtunnel import SSHTunnelForwarder
-from sqlalchemy import create_engine
+import serial
+import time
 
-ssh_config = {
-    "ssh_address_or_host": ("145.24.222.16", 22),
-    "ssh_username": "ubuntu-1051158",
-    "ssh_password": "NS24^vpY",
-    "remote_bind_address": ("localhost", 3306),
-}
+ser = serial.Serial("/dev/serial0", 9600)  # open the serial port at 9600 baud
 
-with SSHTunnelForwarder(**ssh_config) as tunnel:
-    db_config = {
-        "username": "Admin",
-        "password": "adminPasswordisholydonotgetitwrong",
-        "host": "localhost",
-        "port": tunnel.local_bind_port,
-        "database": "JinhangBank",  # Replace with your database name
-    }
-    db_uri = "mysql+pymysql://{username}:{password}@{host}:{port}/{database}".format(
-        **db_config
-    )
-    engine = create_engine(db_uri)
-
-    # Connect to the database and execute a simple query
-    connection = engine.connect()
-    try:
-        result = connection.execute("SELECT * FROM bankpassen")
-        version = result.fetchone()
-        print("Database version:", version)
-    finally:
-        connection.close()
+while True:
+    if ser.in_waiting > 0:
+        line = ser.readline().decode("utf-8").rstrip()  # read a '\n' terminated line
+        print(line)
+    time.sleep(0.1)
