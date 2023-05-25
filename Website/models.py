@@ -16,7 +16,7 @@ class Bankpassen(db.Model):
     bankpas_id = db.Column(db.Integer, primary_key=True)
     pas_nummer = db.Column(db.BigInteger)
     pin_code = db.Column(db.String(4))
-    is_locked = db.Column(db.Boolean)
+    is_locked = db.Column(db.Integer)
     rekening_nummer = db.Column(
         db.String(255), db.ForeignKey("rekeningen.rekening_nummer")
     )
