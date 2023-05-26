@@ -11,6 +11,3 @@ def readRFID():
     except KeyboardInterrupt:
         GPIO.cleanup()
         raise
-
-
-readRFID()
