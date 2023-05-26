@@ -1,5 +1,6 @@
 # models.py
 from db import db
+from sqlalchemy import func
 
 
 class Adressen(db.Model):
@@ -56,3 +57,17 @@ class Transacties(db.Model):
     rekening_nummer = db.Column(
         db.String(255), db.ForeignKey("rekeningen.rekening_nummer")
     )
+
+
+class Biljetten(db.Model):
+    __tablename__ = "biljetten"
+
+    waarde = db.Column(db.Integer, primary_key=True)
+    hoeveelheid = db.Column(db.Integer)
+
+    @staticmethod
+    def total_value():
+        result = db.session.query(
+            func.sum(Biljetten.waarde * Biljetten.hoeveelheid)
+        ).scalar()
+        return result if result is not None else 0
