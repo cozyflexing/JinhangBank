@@ -13,6 +13,7 @@ with app.app_context():
     db, tunnel = create_tunnel(app)
     db.init_app(app)
     total_value = Biljetten.total_value()
+    print(total_value)
 
 app.secret_key = os.getenv("SECRET_KEY")
 
