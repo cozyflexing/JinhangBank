@@ -1,4 +1,3 @@
-# views/__init__.py
 from flask import Flask
 import os
 
@@ -29,6 +28,8 @@ def create_app():
     from .verifyPasNummer import verifyPasNummer_bp
     from .verifyPinCode import verifyPinCode_bp
     from .blocked import blocked_bp
+    from .pollForCard import pollForCard_bp
+    from .arduinoInput import arduinoInput_bp
 
     app.register_blueprint(scanCard_bp)
     app.register_blueprint(enterPin_bp)
@@ -48,5 +49,7 @@ def create_app():
     app.register_blueprint(verifyPasNummer_bp)
     app.register_blueprint(verifyPinCode_bp)
     app.register_blueprint(blocked_bp)
+    app.register_blueprint(pollForCard_bp)
+    app.register_blueprint(arduinoInput_bp)
 
     return app

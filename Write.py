@@ -16,7 +16,7 @@ def generate_random_number():
 
 def writeRFID():
     try:
-        text = f"CHJNHB123456789"
+        text = f"CHJNHB987654321"
         print("Now place your tag to write")
         reader.write(text=text)
         return [id, text]
