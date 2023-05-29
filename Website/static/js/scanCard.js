@@ -9,5 +9,5 @@ window.onload = function() {
                     window.location.href = '/verifyPasNummer?pas_nummer=' + data.pas_nummer;
                 }
             });
-    }, 5000); // Check every 5 seconds
+    }, 100);
 };

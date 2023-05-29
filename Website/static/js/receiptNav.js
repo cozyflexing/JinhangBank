@@ -12,18 +12,22 @@ function pollArduino() {
 function triggerButton(button) {
     switch (button) {
         case "1":
-            document.querySelector(".showBalanceForm button").click();
             break;
         case "2":
-            document.querySelector(".withdrawMoneyForm button").click();
-            break;
-        case "2":
-            document.querySelector(".changePinForm button").click();
             break;
         case "3":
-            document.querySelector(". quitItemEnterPin button").click();
+            break;
         case "4":
-            document.querySelector(".goBackItem button").click();
+            document.querySelector(".noReceipt button").click();
+            break;
+        case "5":
+            break;
+        case "6":
+            break;
+        case "7":
+            break;
+        case "8":
+            document.querySelector(".yesReceipt button").click();
             break;
     }
 }

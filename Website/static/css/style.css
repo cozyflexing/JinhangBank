@@ -339,6 +339,9 @@ input:focus{
     background-repeat: no-repeat;
     background-position: center;
 }
+.languageChange {
+    grid-area: 5/3/5/7;
+}
 .pickLanguageBody button{
     width: 500px;
     height: 110px;

@@ -8,8 +8,12 @@
     <title></title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <script src="{{ url_for('static', filename='js/translations.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/navPickLanguage.js') }}"></script>
 </head>
 <body class="pickLanguageBody">
+    <div class="languageChange">
+        <h1 data-translate="chooseYourLanguage"></h1>
+    </div>
     <div class="nederlandsItem">
         <form action="{{ url_for('scanCard.scanCard') }}" method="GET">
             <button onclick="changeLanguage('nl')"></button>
