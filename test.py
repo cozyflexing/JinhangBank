@@ -1,4 +1,4 @@
-input = 900
+input = 480
 options = {
     "50": [{"value": 50}, {"amount": 6}],
     "20": [{"value": 20}, {"amount": 6}],
