@@ -4,13 +4,13 @@ from flask import Blueprint, jsonify
 
 arduinoInput_bp = Blueprint("arduinoInput", __name__)
 
-ser = serial.Serial("/dev/serial0", 9600)
+arduino_mega = serial.Serial("/dev/ttyACM1", 9600)  # Update with your Uno's device name
 
 
 @arduinoInput_bp.route("/arduinoInput")
 def arduinoInput():
-    if ser.in_waiting > 0:
-        line = ser.readline().decode("utf-8").rstrip()
+    if arduino_mega.in_waiting > 0:
+        line = arduino_mega.readline().decode("utf-8").rstrip()
         return jsonify(button_pressed=line)
     else:
         return jsonify(button_pressed=None)
