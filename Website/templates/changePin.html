@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <script src="{{ url_for('static', filename='js/translations.js') }}"></script>
     <script src="{{ url_for('static', filename='js/navButtonsChoice.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/numPadChangePin.js') }}"></script>
 </head>
 <body class="changePinBody">
     <h1 data-translate="newPin"></h1>
@@ -19,7 +20,7 @@
     </div>
     <div class="enterAmountForm">
         <form action="{{ url_for('bePatient.bePatientNewPin', bankpas_id=bankpas_id) }}" method="POST">
-            <input autofocus="true" type="text" id="new_pin" name="new_pin" required>
+            <input autofocus="true" type="password" id="new_pin" name="new_pin" required>
             <input type="hidden" name="amount" value="">
             <button type="submit"></button>
         </form>

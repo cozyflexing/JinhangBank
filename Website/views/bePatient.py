@@ -20,6 +20,24 @@ def bePatientAmount(bankpas_id):
             if amount_to_withdraw % 10 != 0:
                 print("Pin more money")
             else:
+                bankpas = Bankpassen.query.get(bankpas_id)
+                if not bankpas:
+                    return "Bankpassen not found"
+
+                rekening_nummer = bankpas.rekening_nummer
+
+                rekening = Rekeningen.query.get(rekening_nummer)
+                if not rekening:
+                    return "Rekeningen not found"
+
+                current_balance = rekening.balans
+                if current_balance < amount_to_withdraw:
+                    return "INSUFFICIENT FUNDS"
+
+                new_balance = current_balance - amount_to_withdraw
+                rekening.balans = new_balance
+                print(new_balance)
+                db.session.commit()
                 while amount_to_withdraw != 0:
                     totalFifty = Biljetten.query.get(50).hoeveelheid
                     fifty = Biljetten.query.get(50)
@@ -55,29 +73,8 @@ def bePatientAmount(bankpas_id):
                             ten.hoeveelheid = totalTen - 1
                             bills.append(10)
                             db.session.commit()
-            print(bills)
             arduino_uno.write(str(bills).encode())
-            bankpas = Bankpassen.query.get(bankpas_id)
-            if not bankpas:
-                return "Bankpassen not found"
-
-            rekening_nummer = bankpas.rekening_nummer
-
-            rekening = Rekeningen.query.get(rekening_nummer)
-            if not rekening:
-                return "Rekeningen not found"
-
-            current_balance = rekening.balans
-
-            if current_balance < amount_to_withdraw:
-                return "INSUFFICIENT FUNDS"
-
-            new_balance = current_balance - amount_to_withdraw
-            rekening.balans = new_balance
-            db.session.commit()
-
             return render_template("bePatient.html", bankpas_id=bankpas_id)
-
     return render_template("goodBye.html")
 
 
@@ -90,6 +87,29 @@ def bePatientOtherAmount(bankpas_id):
             if amount_to_withdraw % 10 != 0:
                 print("Pin more money")
             else:
+                # Retrieve the account number associated with the bankpas_id
+                bankpas = Bankpassen.query.get(bankpas_id)
+                if bankpas is None:
+                    return "INVALID BANKPAS ID"
+
+                rekening_nummer = bankpas.rekening_nummer
+
+                # Retrieve the current balance of the account
+                rekening = Rekeningen.query.get(rekening_nummer)
+                if rekening is None:
+                    return "INVALID REKENING NUMMER"
+
+                current_balance = rekening.balans
+
+                if current_balance < amount_to_withdraw:
+                    # If the current balance is less than the amount to withdraw, return "INSUFFICIENT FUNDS"
+                    return "INSUFFICIENT FUNDS"
+
+                new_balance = current_balance - amount_to_withdraw
+
+                # Update the balance of the account after withdrawal
+                rekening.balans = new_balance
+                db.session.commit()
                 while amount_to_withdraw != 0:
                     totalFifty = Biljetten.query.get(50).hoeveelheid
                     fifty = Biljetten.query.get(50)
@@ -127,36 +147,8 @@ def bePatientOtherAmount(bankpas_id):
                             ten.hoeveelheid = totalTen - 1
                             bills.append(10)
                             db.session.commit()
-            print(bills)
             arduino_uno.write(str(bills).encode())
-            # Retrieve the account number associated with the bankpas_id
-            bankpas = Bankpassen.query.get(bankpas_id)
-            if bankpas is None:
-                return "INVALID BANKPAS ID"
-
-            rekening_nummer = bankpas.rekening_nummer
-
-            # Retrieve the current balance of the account
-            rekening = Rekeningen.query.get(rekening_nummer)
-            if rekening is None:
-                return "INVALID REKENING NUMMER"
-
-            current_balance = rekening.balans
-
-            if current_balance < amount_to_withdraw:
-                # If the current balance is less than the amount to withdraw, return "INSUFFICIENT FUNDS"
-                return "INSUFFICIENT FUNDS"
-
-            new_balance = current_balance - amount_to_withdraw
-
-            # Update the balance of the account after withdrawal
-            rekening.balans = new_balance
-            db.session.commit()
-
             return render_template("bePatient.html", bankpas_id=bankpas_id)
-        else:
-            pass
-
         return render_template("goodBye.html")
 
 

@@ -4,12 +4,12 @@ function pollArduino() {
         .then(data => {
             let button_pressed = data.button_pressed;
             if (button_pressed) {
-                triggerButton(button_pressed);
+                triggerButtonOtherAmount(button_pressed);
             }
         });
 }
-function triggerButton(button) {
-    let pinCodeInput = document.getElementById('pin_code');
+function triggerButtonOtherAmount(button) {
+    let pinCodeInput = document.getElementById('other_amount');
     switch (button) {
         case "0":
             pinCodeInput.value += '0';
@@ -42,7 +42,7 @@ function triggerButton(button) {
             pinCodeInput.value += '9';
             break;
         case "e":  // Submit button
-            document.querySelector('.enterPinForm form').submit();
+            document.querySelector('.enterAmountForm form').submit();
             break;
         case "d":  // Delete button
             pinCodeInput.value = pinCodeInput.value.slice(0, -1);  // Remove the last character
@@ -53,5 +53,4 @@ function triggerButton(button) {
     }
 }
 
-
-setInterval(pollArduino, 300);  // poll every second
+setInterval(pollArduino, 300);
