@@ -1,8 +1,9 @@
 # views/bePatient.py
 from flask import Blueprint, render_template, request
-from models import Bankpassen, Rekeningen, Biljetten
+from models import Bankpassen, Rekeningen, Biljetten, Transacties
 from db import db
 import serial
+from datetime import datetime, date
 
 # Start serial communication
 arduino_uno = serial.Serial("/dev/ttyACM2", 9600)  # Update with your Mega's device name
@@ -36,8 +37,16 @@ def bePatientAmount(bankpas_id):
 
                 new_balance = current_balance - amount_to_withdraw
                 rekening.balans = new_balance
-                print(new_balance)
-                db.session.commit()
+                transactie = Transacties(
+                    datum=date.today(),
+                    tijd=datetime.now().time(),
+                    locatie="ATM Location",  # Update as necessary
+                    type="Withdrawal",
+                    hoeveelheid=amount_to_withdraw,
+                    bankpas_id=bankpas_id,
+                    rekening_nummer=rekening.rekening_nummer,
+                )
+                db.session.add(transactie)
                 while amount_to_withdraw != 0:
                     totalFifty = Biljetten.query.get(50).hoeveelheid
                     fifty = Biljetten.query.get(50)
@@ -109,6 +118,16 @@ def bePatientOtherAmount(bankpas_id):
 
                 # Update the balance of the account after withdrawal
                 rekening.balans = new_balance
+                transactie = Transacties(
+                    datum=date.today(),
+                    tijd=datetime.now().time(),
+                    locatie="ATM Location",  # Update as necessary
+                    type="Withdrawal",
+                    hoeveelheid=amount_to_withdraw,
+                    bankpas_id=bankpas_id,
+                    rekening_nummer=rekening.rekening_nummer,
+                )
+                db.session.add(transactie)
                 db.session.commit()
                 while amount_to_withdraw != 0:
                     totalFifty = Biljetten.query.get(50).hoeveelheid
