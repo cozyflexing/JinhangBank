@@ -4,7 +4,7 @@ from flask import Blueprint, jsonify
 
 arduinoInput_bp = Blueprint("arduinoInput", __name__)
 
-arduino_mega = serial.Serial("/dev/ttyACM1", 9600)  # Update with your Uno's device name
+arduino_mega = serial.Serial("/dev/ttyACM0", 9600)  # Update with your Uno's device name
 
 
 @arduinoInput_bp.route("/arduinoInput")

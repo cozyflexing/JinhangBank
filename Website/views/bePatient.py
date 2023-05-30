@@ -5,7 +5,7 @@ from db import db
 import serial
 
 # Start serial communication
-ser = serial.Serial("/dev/serial0", 9600)  # check your COM port and baud rate
+arduino_uno = serial.Serial("/dev/ttyACM1", 9600)  # Update with your Mega's device name
 
 
 bePatient_bp = Blueprint("bePatient", __name__)
@@ -52,8 +52,8 @@ def bePatientAmount(bankpas_id):
                             amount_to_withdraw -= 10
                             ten.hoeveelheid = totalTen - 1
                             bills.append(10)
-            ser.write(str(bills).encode())
-            ser.close()
+            arduino_uno.write(str(bills).encode())
+            arduino_uno.close()
             bankpas = Bankpassen.query.get(bankpas_id)
             if not bankpas:
                 return "Bankpassen not found"
@@ -119,8 +119,8 @@ def bePatientOtherAmount(bankpas_id):
                             amount_to_withdraw -= 10
                             ten.hoeveelheid = totalTen - 1
                             bills.append(10)
-            ser.write(str(bills).encode())
-            ser.close()
+            arduino_uno.write(str(bills).encode())
+            arduino_uno.close()
             # Retrieve the account number associated with the bankpas_id
             bankpas = Bankpassen.query.get(bankpas_id)
             if bankpas is None:

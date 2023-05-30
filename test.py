@@ -20,17 +20,12 @@ def get_button_press_from_mega(arduino):
             print(f"Button {button_press} was pressed on the Arduino Mega")
 
 
-arduino_uno = serial.Serial("/dev/ttyACM0", 9600)  # Update with your Uno's device name
-arduino_mega = serial.Serial(
-    "/dev/ttyACM1", 9600
-)  # Update with your Mega's device name
+arduino_mega = serial.Serial("/dev/ttyACM0", 9600)  # Update with your Uno's device name
+arduino_uno = serial.Serial("/dev/ttyACM1", 9600)  # Update with your Mega's device name
 
 time.sleep(2)  # Waiting for the Arduino to initialize
 
 get_button_press_from_mega(arduino_mega)
-
-send_to_arduino(arduino_uno, "Hello, Uno!")
-get_ack_from_arduino(arduino_uno)
 
 arduino_mega.close()
 arduino_uno.close()
