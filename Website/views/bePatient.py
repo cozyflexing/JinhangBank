@@ -40,7 +40,7 @@ def bePatientAmount(bankpas_id):
                 transactie = Transacties(
                     datum=date.today(),
                     tijd=datetime.now().time(),
-                    locatie="ATM Location",  # Update as necessary
+                    locatie="CHF",  # Update as necessary
                     type="Withdrawal",
                     hoeveelheid=amount_to_withdraw,
                     bankpas_id=bankpas_id,
@@ -121,7 +121,7 @@ def bePatientOtherAmount(bankpas_id):
                 transactie = Transacties(
                     datum=date.today(),
                     tijd=datetime.now().time(),
-                    locatie="ATM Location",  # Update as necessary
+                    locatie="CHF",  # Update as necessary
                     type="Withdrawal",
                     hoeveelheid=amount_to_withdraw,
                     bankpas_id=bankpas_id,
