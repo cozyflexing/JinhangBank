@@ -42,3 +42,7 @@ ser.write(generate_receipt.encode())
 ser.write(bytearray([0x1B, 0x64, 0x03]))
 
 ser.close()
+Traceback (most recent call last):
+  File "/home/pi/Desktop/JinhangBank/Website/bonPrinter.py", line 39, in <module>
+    ser.write(generate_receipt.encode())
+AttributeError: 'function' object has no attribute 'encode'
