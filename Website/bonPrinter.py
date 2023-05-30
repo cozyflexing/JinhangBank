@@ -36,13 +36,10 @@ ser.write(bytearray([0x1B, 0x40]))
 time.sleep(0.5)
 
 # Write "Hello, world!" to the printer
-ser.write(generate_receipt.encode())
+receipt_text = generate_receipt()
+ser.write(receipt_text.encode())
 
 # Feed three lines to give some space
 ser.write(bytearray([0x1B, 0x64, 0x03]))
 
 ser.close()
-Traceback (most recent call last):
-  File "/home/pi/Desktop/JinhangBank/Website/bonPrinter.py", line 39, in <module>
-    ser.write(generate_receipt.encode())
-AttributeError: 'function' object has no attribute 'encode'
