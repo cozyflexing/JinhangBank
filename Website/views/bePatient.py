@@ -5,7 +5,7 @@ from db import db
 import serial
 
 # Start serial communication
-arduino_uno = serial.Serial("/dev/ttyACM1", 9600)  # Update with your Mega's device name
+arduino_uno = serial.Serial("/dev/ttyACM2", 9600)  # Update with your Mega's device name
 
 
 bePatient_bp = Blueprint("bePatient", __name__)
@@ -15,18 +15,18 @@ bePatient_bp = Blueprint("bePatient", __name__)
 def bePatientAmount(bankpas_id):
     if request.method == "POST":
         if request.form["amount"] != "":
-            totalFifty = Biljetten.query.get(50).hoeveelheid
-            fifty = Biljetten.query.get(50)
-            totalTwenty = Biljetten.query.get(20).hoeveelheid
-            twenty = Biljetten.query.get(20)
-            totalTen = Biljetten.query.get(10).hoeveelheid
-            ten = Biljetten.query.get(10)
             bills = []
             amount_to_withdraw = int(request.form["amount"])
             if amount_to_withdraw % 10 != 0:
                 print("Pin more money")
             else:
                 while amount_to_withdraw != 0:
+                    totalFifty = Biljetten.query.get(50).hoeveelheid
+                    fifty = Biljetten.query.get(50)
+                    totalTwenty = Biljetten.query.get(20).hoeveelheid
+                    twenty = Biljetten.query.get(20)
+                    totalTen = Biljetten.query.get(10).hoeveelheid
+                    ten = Biljetten.query.get(10)
                     if amount_to_withdraw > Biljetten.total_value():
                         print("Pick a lesser amount")
                         break
@@ -38,6 +38,7 @@ def bePatientAmount(bankpas_id):
                             amount_to_withdraw -= 50
                             fifty.hoeveelheid = totalFifty - 1
                             bills.append(50)
+                            db.session.commit()
                         elif (
                             amount_to_withdraw >= 20
                             and Biljetten.query.get(20).hoeveelheid > 0
@@ -45,6 +46,7 @@ def bePatientAmount(bankpas_id):
                             amount_to_withdraw -= 20
                             twenty.hoeveelheid = totalTwenty - 1
                             bills.append(20)
+                            db.session.commit()
                         elif (
                             amount_to_withdraw >= 10
                             and Biljetten.query.get(10).hoeveelheid > 0
@@ -52,8 +54,9 @@ def bePatientAmount(bankpas_id):
                             amount_to_withdraw -= 10
                             ten.hoeveelheid = totalTen - 1
                             bills.append(10)
+                            db.session.commit()
+            print(bills)
             arduino_uno.write(str(bills).encode())
-            arduino_uno.close()
             bankpas = Bankpassen.query.get(bankpas_id)
             if not bankpas:
                 return "Bankpassen not found"
@@ -81,12 +84,6 @@ def bePatientAmount(bankpas_id):
 @bePatient_bp.route("/bepatientotheramount/<int:bankpas_id>", methods=["GET", "POST"])
 def bePatientOtherAmount(bankpas_id):
     if request.method == "POST":
-        totalFifty = Biljetten.query.get(50).hoeveelheid
-        fifty = Biljetten.query.get(50)
-        totalTwenty = Biljetten.query.get(20).hoeveelheid
-        twenty = Biljetten.query.get(20)
-        totalTen = Biljetten.query.get(10).hoeveelheid
-        ten = Biljetten.query.get(10)
         bills = []
         if request.form["other_amount"] != "":
             amount_to_withdraw = int(request.form["other_amount"])
@@ -94,6 +91,12 @@ def bePatientOtherAmount(bankpas_id):
                 print("Pin more money")
             else:
                 while amount_to_withdraw != 0:
+                    totalFifty = Biljetten.query.get(50).hoeveelheid
+                    fifty = Biljetten.query.get(50)
+                    totalTwenty = Biljetten.query.get(20).hoeveelheid
+                    twenty = Biljetten.query.get(20)
+                    totalTen = Biljetten.query.get(10).hoeveelheid
+                    ten = Biljetten.query.get(10)
                     if amount_to_withdraw > Biljetten.total_value():
                         print("Pick a lesser amount")
                         break
@@ -105,6 +108,8 @@ def bePatientOtherAmount(bankpas_id):
                             amount_to_withdraw -= 50
                             fifty.hoeveelheid = totalFifty - 1
                             bills.append(50)
+                            db.session.commit()
+
                         elif (
                             amount_to_withdraw >= 20
                             and Biljetten.query.get(20).hoeveelheid > 0
@@ -112,6 +117,8 @@ def bePatientOtherAmount(bankpas_id):
                             amount_to_withdraw -= 20
                             twenty.hoeveelheid = totalTwenty - 1
                             bills.append(20)
+                            db.session.commit()
+
                         elif (
                             amount_to_withdraw >= 10
                             and Biljetten.query.get(10).hoeveelheid > 0
@@ -119,8 +126,9 @@ def bePatientOtherAmount(bankpas_id):
                             amount_to_withdraw -= 10
                             ten.hoeveelheid = totalTen - 1
                             bills.append(10)
+                            db.session.commit()
+            print(bills)
             arduino_uno.write(str(bills).encode())
-            arduino_uno.close()
             # Retrieve the account number associated with the bankpas_id
             bankpas = Bankpassen.query.get(bankpas_id)
             if bankpas is None:

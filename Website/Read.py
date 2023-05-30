@@ -11,3 +11,7 @@ def readRFID():
     except KeyboardInterrupt:
         GPIO.cleanup()
         raise
+
+
+tes = readRFID()
+print(tes)
