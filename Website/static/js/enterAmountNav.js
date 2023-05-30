@@ -11,23 +11,11 @@ function pollArduino() {
 
 function triggerButton(button) {
     switch (button) {
-        case "1":
+        case "s":
             document.querySelector(".goBackItem button").click();
             break;
-        case "2":
-            break;
-        case "3":
-            break;
-        case "4":
+        case "v":
             document.querySelector(".quitItemEnterPin button").click();
-            break;
-        case "5":
-            break;
-        case "6":
-            break;
-        case "7":
-            break;
-        case "8":
             break;
     }
 }
