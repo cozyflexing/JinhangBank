@@ -24,3 +24,5 @@ get_ack_from_arduino(arduino_uno)
 
 arduino_mega.close()
 arduino_uno.close()
+
+sudo usermod -a -G dialout $USER
