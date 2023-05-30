@@ -4,33 +4,25 @@ from models import Bankpassen, Klanten, Transacties, Rekeningen
 from datetime import datetime
 
 
-def generate_receipt(bankpas_id, transactie_id):
-    # Fetch the necessary data
-    bankpas = Bankpassen.query.get(bankpas_id)
-    klant = Klanten.query.get(bankpas.klant_id)
-    transactie = Transacties.query.get(transactie_id)
-    rekening = Rekeningen.query.filter_by(
-        rekening_nummer=transactie.rekening_nummer
-    ).first()
-
+def generate_receipt():
     # Build the receipt text
-    receipt_text = f"-------------------------------\n"
-    receipt_text += f"ATM Withdrawal Receipt\n"
-    receipt_text += f"-------------------------------\n"
-    receipt_text += f"Customer: {klant.voornaam} {klant.tussenvoegsel if klant.tussenvoegsel else ''} {klant.achternaam}\n"
-    receipt_text += f"Card Number: {bankpas.pas_nummer}\n"
-    receipt_text += f"Account Number: {rekening.rekening_nummer}\n"
-    receipt_text += f"-------------------------------\n"
-    receipt_text += f"Date: {transactie.datum.strftime('%Y-%m-%d')}\n"
-    receipt_text += f"Time: {transactie.tijd.strftime('%H:%M:%S')}\n"
-    receipt_text += f"Location: {transactie.locatie}\n"
-    receipt_text += f"Transaction Type: {transactie.type}\n"
-    receipt_text += f"Withdrawal Amount: {transactie.hoeveelheid}\n"
-    receipt_text += f"-------------------------------\n"
-    receipt_text += f"Remaining Balance: {rekening.balans}\n"
-    receipt_text += f"-------------------------------\n"
-    receipt_text += f"Thank you for using our services.\n"
-    receipt_text += f"-------------------------------\n"
+    receipt_text = "-------------------------------\n"
+    receipt_text += "ATM Withdrawal Receipt\n"
+    receipt_text += "-------------------------------\n"
+    receipt_text += "Customer: John Doe\n"
+    receipt_text += "Card Number: 123456789\n"
+    receipt_text += "Account Number: 987654321\n"
+    receipt_text += "-------------------------------\n"
+    receipt_text += "Date: 2023-05-31\n"
+    receipt_text += "Time: 12:34:56\n"
+    receipt_text += "Location: ATM Location\n"
+    receipt_text += "Transaction Type: Withdrawal\n"
+    receipt_text += "Withdrawal Amount: 100\n"
+    receipt_text += "-------------------------------\n"
+    receipt_text += "Remaining Balance: 900\n"
+    receipt_text += "-------------------------------\n"
+    receipt_text += "Thank you for using our services.\n"
+    receipt_text += "-------------------------------\n"
 
     return receipt_text
 
@@ -44,7 +36,7 @@ ser.write(bytearray([0x1B, 0x40]))
 time.sleep(0.5)
 
 # Write "Hello, world!" to the printer
-ser.write(b"Hello, world!\n")
+ser.write(generate_receipt.encode())
 
 # Feed three lines to give some space
 ser.write(bytearray([0x1B, 0x64, 0x03]))
