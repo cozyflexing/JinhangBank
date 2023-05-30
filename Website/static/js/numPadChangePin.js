@@ -9,7 +9,7 @@ function pollArduino() {
         });
 }
 function triggerButtonOtherAmount(button) {
-    let pinCodeInput = document.getElementById('new_pin');
+    let pinCodeInput = document.getElementById('change_pin');
     switch (button) {
         case "0":
             pinCodeInput.value += '0';
@@ -53,4 +53,4 @@ function triggerButtonOtherAmount(button) {
     }
 }
 
-setInterval(pollArduino, 300);
+setInterval(pollArduino, 100);

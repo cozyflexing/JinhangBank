@@ -155,8 +155,8 @@ def bePatientOtherAmount(bankpas_id):
 @bePatient_bp.route("/bepatientnewpin/<int:bankpas_id>", methods=["GET", "POST"])
 def bePatientNewPin(bankpas_id):
     if request.method == "POST":
-        if request.form["new_pin"] != "":
-            newPin = request.form["new_pin"]
+        if request.form["change_pin"] != "":
+            newPin = request.form["change_pin"]
             bankpas = Bankpassen.query.get(bankpas_id)
             if not bankpas:
                 return "Bankpassen not found"

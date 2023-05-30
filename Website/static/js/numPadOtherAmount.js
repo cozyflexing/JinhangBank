@@ -53,4 +53,4 @@ function triggerButtonOtherAmount(button) {
     }
 }
 
-setInterval(pollArduino, 300);
+setInterval(pollArduino, 100);

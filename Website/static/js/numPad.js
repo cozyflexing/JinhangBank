@@ -54,4 +54,4 @@ function triggerButton(button) {
 }
 
 
-setInterval(pollArduino, 300);  // poll every second
+setInterval(pollArduino, 100);  // poll every second
