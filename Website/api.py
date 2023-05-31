@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from db import db
+from db import db, init_db
 from models import Rekeningen, Bankpassen
 
 app = Flask(__name__)
@@ -27,7 +27,9 @@ def balance():
     bankpas = (
         db.session.query(Bankpassen).filter_by(rekening_nummer=rekening_nummer).first()
     )
-    if not bankpas or bankpas.pin_code != pin:
+    if bankpas.pin_code != pin:
+        bankpas.is_locked += 1
+        db.session.commit()
         return jsonify(
             {
                 "status": 401,
@@ -66,7 +68,9 @@ def withdraw():
     bankpas = (
         db.session.query(Bankpassen).filter_by(rekening_nummer=rekening_nummer).first()
     )
-    if not bankpas or bankpas.pin_code != pin:
+    if bankpas.pin_code != pin:
+        bankpas.is_locked += 1
+        db.session.commit()
         return jsonify(
             {
                 "status": 401,
@@ -99,4 +103,5 @@ def withdraw():
 
 
 if __name__ == "__main__":
+    init_db(app)  # Initialize SQLAlchemy with the Flask app
     app.run(host="0.0.0.0", port=8080)

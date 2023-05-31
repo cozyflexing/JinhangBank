@@ -1,10 +1,18 @@
-# views/arduinoInput.py
-import serial
+import requests
+import json
 
-arduino_mega = serial.Serial("/dev/ttyACM0", 9600)  # Update with your Uno's device name
+# for /api/balance
+data = {"acctNo": "CHJNHB987654321", "pin": "8888"}
+response = requests.post(
+    "http://145.24.222.16:8080/api/balance",
+    data=json.dumps(data),
+    headers={"Content-Type": "application/json"},
+)
 
-
-while 1:
-    if arduino_mega.in_waiting > 0:
-        line = arduino_mega.readline().decode("utf-8").rstrip()
-        print(line)
+# for /api/withdraw
+data = {"acctNo": "CHJNHB987654321", "pin": "5588", "amount": 500}
+response = requests.post(
+    "http://145.24.222.16:8080/api/withdraw",
+    data=json.dumps(data),
+    headers={"Content-Type": "application/json"},
+)
