@@ -1,6 +1,6 @@
 # models.py
 from db import db
-from sqlalchemy import func
+from sqlalchemy import func, desc
 
 
 class Adressen(db.Model):

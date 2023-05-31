@@ -283,6 +283,14 @@ input:focus{
     background-repeat: no-repeat;
     background-position: center;
 }
+.amountUnavailableBody h1{
+    grid-area: 3/3/3/8;
+    justify-self: center;
+    transform: translate(-90px, 50px);
+    color: black;
+    font-size: 35px;
+    font-weight: bold; 
+}
 .enterAmountBody {
     display: grid;
     grid-template-rows: repeat(8, 1fr);
@@ -469,6 +477,14 @@ input:focus{
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+}
+.blockedBody h1{
+    grid-area: 7/3/7/8;
+    justify-self: center;
+    transform: translate(-90px, 50px);
+    color: white;
+    font-size: 35px;
+    font-weight: bold; 
 }
 .quitItem{
     grid-area: 7/1/8/3;

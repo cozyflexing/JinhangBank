@@ -13,7 +13,7 @@
     <h1 data-translate="takeYourMoney"></h1>
     <script>
         setTimeout(function() {
-            window.location.href = "{{ url_for('receiptChoice.receiptChoice') }}";
+            window.location.href = "{{ url_for('receiptChoice.receiptChoice', bankpas_id=bankpas_id) }}";
         }, 5000);
     </script>
 </body>

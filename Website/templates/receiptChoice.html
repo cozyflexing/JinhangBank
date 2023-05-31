@@ -13,7 +13,7 @@
 <body class="receiptChoiceBody">
     <h1 data-translate="wantReceipt"></h1>
     <div class="yesReceipt">
-        <form action="{{ url_for('bePatientReceipt.bePatientReceipt') }}" method="GET">
+        <form action="{{ url_for('bePatientReceipt.bePatientReceipt', bankpas_id=bankpas_id) }}" method="GET">
             <button data-translate="yes" type="submit"></button>
         </form>
     </div>

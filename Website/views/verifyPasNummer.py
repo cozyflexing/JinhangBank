@@ -17,7 +17,7 @@ def verifyPasNummer():
 
     if bankpas:
         if bankpas.is_locked == 3:
-            return redirect(url_for("blocked.blocked"))
+            return redirect(url_for("blocked.blocked", bankpas_id=bankpas.bankpas_id))
         else:
             return redirect(url_for("enterPin.enterPin", bankpas_id=bankpas.bankpas_id))
     else:

@@ -13,7 +13,7 @@
     <h1 data-translate="pleaseBePatient"></h1>
     <script>
         setTimeout(function() {
-            window.location.href = "{{ url_for('takeReceipt.takeReceipt') }}";
+            window.location.href = "{{ url_for('takeReceipt.takeReceipt', bankpas_id=bankpas_id) }}";
         }, 5000);
     </script>
 </body>

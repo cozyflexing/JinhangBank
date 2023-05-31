@@ -6,7 +6,7 @@ import serial
 from datetime import datetime, date
 
 # Start serial communication
-arduino_uno = serial.Serial("/dev/ttyACM2", 9600)  # Update with your Mega's device name
+arduino_uno = serial.Serial("/dev/ttyACM1", 9600)  # Update with your Mega's device name
 
 
 bePatient_bp = Blueprint("bePatient", __name__)
@@ -33,7 +33,9 @@ def bePatientAmount(bankpas_id):
 
                 current_balance = rekening.balans
                 if current_balance < amount_to_withdraw:
-                    return "INSUFFICIENT FUNDS"
+                    return render_template(
+                        "amountUnavailable.html", bankpas_id=bankpas_id
+                    )
 
                 new_balance = current_balance - amount_to_withdraw
                 rekening.balans = new_balance
@@ -55,8 +57,9 @@ def bePatientAmount(bankpas_id):
                     totalTen = Biljetten.query.get(10).hoeveelheid
                     ten = Biljetten.query.get(10)
                     if amount_to_withdraw > Biljetten.total_value():
-                        print("Pick a lesser amount")
-                        break
+                        return render_template(
+                            "amountUnavailable.html", bankpas_id=bankpas_id
+                        )
                     else:
                         if (
                             amount_to_withdraw >= 50
@@ -111,9 +114,9 @@ def bePatientOtherAmount(bankpas_id):
                 current_balance = rekening.balans
 
                 if current_balance < amount_to_withdraw:
-                    # If the current balance is less than the amount to withdraw, return "INSUFFICIENT FUNDS"
-                    return "INSUFFICIENT FUNDS"
-
+                    return render_template(
+                        "amountUnavailable.html", bankpas_id=bankpas_id
+                    )
                 new_balance = current_balance - amount_to_withdraw
 
                 # Update the balance of the account after withdrawal
@@ -137,8 +140,9 @@ def bePatientOtherAmount(bankpas_id):
                     totalTen = Biljetten.query.get(10).hoeveelheid
                     ten = Biljetten.query.get(10)
                     if amount_to_withdraw > Biljetten.total_value():
-                        print("Pick a lesser amount")
-                        break
+                        return render_template(
+                            "amountUnavailable.html", bankpas_id=bankpas_id
+                        )
                     else:
                         if (
                             amount_to_withdraw >= 50
