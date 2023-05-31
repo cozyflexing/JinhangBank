@@ -514,3 +514,12 @@ input:focus{
     background: none;
     border: none;
 }
+
+.flashes {
+    background-color: #ff4d4d;  /* Red background */
+    color: white;  /* White text */
+    padding: 10px;  /* Some padding */
+    border-radius: 5px;  /* Rounded corners */
+    margin: 10px 0;  /* Some margin at the top and bottom */
+    text-align: center;  /* Center the text */
+}
