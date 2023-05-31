@@ -14,6 +14,17 @@
 <body class="enterPinBody">
         <div class="enterPinItem-2">
             <h1 class="" data-translate="enterPin"></h1>
+            <div class="flashes">
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <ul class="flashes">
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
+            </div>
         </div>
         <div class="enterPinForm">
             <form action="{{ url_for('verifyPinCode.enter_pin', bankpas_id=bankpas_id) }}" method="POST">
