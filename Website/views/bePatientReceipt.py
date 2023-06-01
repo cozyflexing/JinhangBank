@@ -31,13 +31,10 @@ def bePatientReceipt(bankpas_id):
     """
     Render the bePatientReceipt.html template when the route is accessed.
     """
-    most_recent_transaction = (
-        Transacties.query.filter(Transacties.bankpas_id == bankpas_id)
-        .order_by(desc(Transacties.tijd))
-        .first()
-    )
+    most_recent_transaction = Transacties.query.filter(
+        Transacties.bankpas_id == bankpas_id
+    ).last()
     account = Bankpassen.query.get(bankpas_id)
-
     # Print the receipt with the most recent transaction details
     receipt_text = generate_receipt(most_recent_transaction, account)
 

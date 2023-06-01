@@ -46,7 +46,9 @@ def balance():
 
     account.reset_attempts()
     balance = account.balance
-    return jsonify({"status": 200, "balance": balance, "success": True, "acctNo": iban})
+    return jsonify(
+        {"status": 200, "balance": int(balance), "success": True, "acctNo": iban}
+    )
 
 
 @app.route("/api/withdraw", methods=["POST"])
