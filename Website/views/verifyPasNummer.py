@@ -2,7 +2,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from models import Bankpassen
 from db import db
-from apiPost import post_balance
 
 verifyPasNummer_bp = Blueprint("verifyPasNummer", __name__)
 
@@ -13,12 +12,6 @@ def verifyPasNummer():
     Verify the pas_nummer and redirect to the appropriate route based on the verification result.
     """
     pas_nummer = request.args.get("pas_nummer")
-
-    # If the pas_nummer doesn't start with 'CHJNHB', return a suitable response
-    if not pas_nummer.startswith("CHJNHB"):
-        return render_template(
-            url_for("enterPin.enterPinOutside", bankpas_id=pas_nummer)
-        )
 
     bankpas = Bankpassen.query.filter_by(rekening_nummer=pas_nummer).first()
 
